@@ -1,6 +1,6 @@
 % Coursework template
 
-% My Name here, My UserID       <--- confirm who you are 
+% Irfanuddin Syed, H00389591      <--- confirm who you are 
 % F28PL Coursework 3, Prolog    <--- confirm what you're submitting 
 
 % Due: Wednesday 8th December 2021, 3:30pm
@@ -39,6 +39,16 @@
 % definition.
 %
 %   <--- always have the question under your nose
+
+/* Add corresponding elements of the complex number, i.e., real + real and imaginary + imaginary */
+
+cadd([X1,X2], [Y1, Y2], [Z1, Z2]) :- Z1 is X1 + Y1, Z2 is X2 + Y2.
+
+
+/* in complex numbers, for 2 numbers a + bj and c + dj; the multiplication takes place as follows
+% product = (ac - bd) + (ad + bc)j */
+
+cmult([X1,X2], [Y1, Y2], [Z1, Z2]) :- Z1 is X1*Y1 - X2*Y2, Z2 is X1*Y2 + X2*Y1.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END ANSWER TO Question 1
