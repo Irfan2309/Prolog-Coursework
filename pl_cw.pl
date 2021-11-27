@@ -133,6 +133,13 @@ cmult([X1,X2], [Y1, Y2], [Z1, Z2]) :- Z1 is X1*Y1 - X2*Y2, Z2 is X1*Y2 + X2*Y1.
 % something amiss.)
 
 
+/* Create the instances for the loop (eat, sleep, repeat) */
+cycleoflife(eat).
+cycleoflife(sleep).
+cycleoflife(code).
+
+/* Creating an infinite loop to cycle through all the instances of the loop repeatedly */
+cycleoflife(X) :- cycleoflife(X).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END ANSWER TO Question 4
