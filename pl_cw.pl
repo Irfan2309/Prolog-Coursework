@@ -66,9 +66,11 @@ cmult([X1,X2], [Y1, Y2], [Z1, Z2]) :- Z1 is X1*Y1 - X2*Y2, Z2 is X1*Y2 + X2*Y1.
 % such that seqadd(Xs,Yy,Zs) succeeds when Xs and Ys are lists of
 % integers of the same length and Zs is their sequence sum.
 
+/* Using pattern matching, we add the first 2 elements of the lists X and Y and set it to the list Z
+ then we recusively call the rest of the lists stored in X2 and Y2 and store it to Z2*/
 
-
-
+seqadd([],[],[]).
+    seqadd([X1|X2], [Y1|Y2],[Z1|Z2):- Z1 is X1 + Y1, seqadd(X2, Y2, Z2).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END ANSWER TO Question 2
@@ -100,7 +102,11 @@ cmult([X1,X2], [Y1, Y2], [Z1, Z2]) :- Z1 is X1*Y1 - X2*Y2, Z2 is X1*Y2 + X2*Y1.
 % Illustrate your answer in terms of the ‘stations’ database. 
 
 
+/* 
+3a. Backtracking :-
 
+3b. Cut :-
+*/
 
 
 
@@ -134,11 +140,13 @@ cmult([X1,X2], [Y1, Y2], [Z1, Z2]) :- Z1 is X1*Y1 - X2*Y2, Z2 is X1*Y2 + X2*Y1.
 
 
 /* Create the instances for the loop (eat, sleep, repeat) */
+
 cycleoflife(eat).
 cycleoflife(sleep).
 cycleoflife(code).
 
 /* Creating an infinite loop to cycle through all the instances of the loop repeatedly */
+
 cycleoflife(X) :- cycleoflife(X).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
