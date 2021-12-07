@@ -44,11 +44,25 @@
 
 cadd([X1,X2], [Y1, Y2], [Z1, Z2]) :- Z1 is X1 + Y1, Z2 is X2 + Y2.
 
+/*Testing: 
+run "cadd([a, b], [a1, b1], [a2, b2])" and it will return a2 and b2 as a sum of a,a1 and b,b1
+Example: cadd([1, 2], [3, 4], [Z1, Z2])
+        This will return Z1 = 4 , Z2 = 6; where Z1 is the sum of 1,3 and Z2 is the sum of 2,4
+*/
+
 
 /* in complex numbers, for 2 numbers a + bj and c + dj; the multiplication takes place as follows
 % product = (ac - bd) + (ad + bc)j */
 
 cmult([X1,X2], [Y1, Y2], [Z1, Z2]) :- Z1 is X1*Y1 - X2*Y2, Z2 is X1*Y2 + X2*Y1.
+/*Testing: 
+run "cmult([a, b], [a1, b1], [a2, b2])" and it will return the complex number a2 + b2j as a
+product of complex numbers a +bj and a1 + b1j
+Example: cmult([1, 2], [3, 4], [Z1, Z2])
+        This will return Z1 = -5 , Z2 = 10;  where a2 + b2j as the product of complex numbers 
+        1 +2j and 3 + 4sj
+*/
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END ANSWER TO Question 1
@@ -70,12 +84,18 @@ cmult([X1,X2], [Y1, Y2], [Z1, Z2]) :- Z1 is X1*Y1 - X2*Y2, Z2 is X1*Y2 + X2*Y1.
  then we recusively call the rest of the lists stored in X2 and Y2 and store it to Z2*/
 
 seqadd([],[],[]).
-    seqadd([X1|X2], [Y1|Y2],[Z1|Z2):- Z1 is X1 + Y1, seqadd(X2, Y2, Z2).
+seqadd([X1|X2], [Y1|Y2], [Z1|Z2]):- Z1 is X1 + Y1, seqadd(X2, Y2, Z2).
 
+/*Testing:
+run "seqadd([Xs], [Ys], [Zs])" and it will returns the Zs as the sum of the Xs and the Ys.
+
+Example: seqadd([1, 2, 3, 4], [5, 6, 7, 8], [Z1, Z2, Z3, Z4]) 
+        This will return: Z1 = 6, Z2= 8, Z3 = 10, Z4 = 12
+*/
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END ANSWER TO Question 2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+ 
 
 
 
@@ -149,6 +169,9 @@ cycleoflife(code).
 
 cycleoflife(X) :- cycleoflife(X).
 
+/*Testing: 
+run "cycleoflife(X)" and it will return X = eat. Press tab to continue through the cycle and enter to end the loop"
+*/
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END ANSWER TO Question 4
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
