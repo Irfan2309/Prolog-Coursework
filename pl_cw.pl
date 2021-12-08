@@ -137,6 +137,16 @@ entry that matches.
 
 
 3b. Cut :-
+The issue with backtracking in prolog is that it is incredibly inefficient. This is because prolog doesn't actually know the outcome of said backtracking, 
+and this leads to time being wasted looking for an outcome that doesn't even exist.
+This is why we use the goal Cut(written as "!") which is a condtion that is always met and cannot be backtracked past.
+
+In 'stations.pl', a Cut is used in 'journey(X,leuchars),!,journey(kirkcaldy,leuchars).' 
+What happens is that When the condition "kirkcaldy" is met, the journey will be checked only from this condition.
+This means that it will check if there is a train from kirkcaldy to leuchars. Since there is a direct train, it will return the output. 
+Then the condition is checked again from kirkcaldy to leuchars and this time there is a connecting train to leuchars through cupar and it returns the output for the same. 
+
+In this manner Cut reduces unnecessary backtracking and exponentially increases efficiency. It prevents backtracking to stations before kirkcaldy which would only decrease efficiency.
 */
 
 
