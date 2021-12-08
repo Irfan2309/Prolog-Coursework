@@ -124,6 +124,17 @@ Example: seqadd([1, 2, 3, 4], [5, 6, 7, 8], [Z1, Z2, Z3, Z4])
 
 /* 
 3a. Backtracking :-
+Backtracking is essentially the process of retracing one's steps. In Prolog, until the desired destination is reached, it backtracks through the program.   
+
+In 'stations.pl', if we search a query 'journey(X,leuchars)', multiple answers will be returned due to backtracking. 
+The program will return all the train stations that journey to leuchars. There will be repetions since it checks train journey on both the fast line and the slow line.
+Initially it returns "waverley". When you press ";" it will again return "waverley" since the predicate has backtracked and checks if there is a different
+route to reach leuchars and whether there is a different way which is a longer route. But since there is no new route, it checks the station after "waverley" 
+which is "haymarket" and it backtracks to "haymarket" again after destination is found.
+
+This is considered backtracking because it quite literally retraces its steps and iterates through to the next database 
+entry that matches.
+
 
 3b. Cut :-
 */
