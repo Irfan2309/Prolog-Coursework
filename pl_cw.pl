@@ -60,7 +60,7 @@ run "cmult([a, b], [a1, b1], [a2, b2])" and it will return the complex number a2
 product of complex numbers a +bj and a1 + b1j
 Example: cmult([1, 2], [3, 4], [Z1, Z2])
         This will return Z1 = -5 , Z2 = 10;  where a2 + b2j as the product of complex numbers 
-        1 +2j and 3 + 4sj
+        1 +2j and 3 + 4j
 */
 
 
@@ -191,7 +191,7 @@ cycleoflife(code).
 cycleoflife(X) :- cycleoflife(X).
 
 /*Testing: 
-run "cycleoflife(X)" and it will return X = eat. Press tab to continue through the cycle and enter to end the loop"
+run "cycleoflife(X)" and it will return X = eat. Press ; to continue through the cycle and enter to end the loop"
 */
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END ANSWER TO Question 4
